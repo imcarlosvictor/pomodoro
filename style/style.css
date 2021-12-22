@@ -1,0 +1,106 @@
+:root {
+    --red: #fd5d5d;
+    --green: #5FDA90;
+    --darkgrey: #2D2D2D;
+}
+
+/* ######################### GENERAL ###################### */
+* {
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    background: #fd5d5d;
+}
+
+#main-page {
+    padding: 5em;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+}
+/* ######################### BUTTONS ###################### */
+nav {
+    display: grid;
+    justify-content: center;
+    gap: .5em;
+    margin: 0 0 2em 0;
+}
+
+.btn-settings {
+    background: none;
+    color: var(--darkgrey);
+    border: none;
+    border-radius: 5px;
+    margin: .5em;
+    padding: .5em;
+}
+
+.btn-settings:hover {
+    background: #484242;
+    color: #e5e5e5;
+}
+
+
+/* ######################### POMODORO ###################### */
+/* .pomodoro {
+    position: absolute;
+    right: 200px;
+} */
+
+/* ######################### COUNTER ###################### */
+.counter {
+    display: grid;
+    justify-content: center;
+}
+
+#time {
+    margin: 0 0 .2em 0;
+    font-size: 10em;
+    color: var(--darkgrey);
+    justify-content: flex-end;
+}
+
+#btn-start {
+    background: var(--darkgrey);
+    color: #e5e5e5;
+    border: none;
+    border-radius: 5px;
+    padding: 0.8em 2em;
+    font-size: 25px;
+    font-weight: 500;
+    text-transform: uppercase;
+}
+
+/* ######################### TO-DO LIST SIDEBAR ###################### */
+#todo-list-sidebar {
+    position: absolute;
+    width: 400px;
+    height: 100%;
+    left: -330px;
+    top: 0px;
+    background: #FF7A7A;
+    transition: .2s;
+}
+
+#toggle-btn {
+    /* background: #000; */
+    border: none;
+    position: absolute;
+    top: 50%;
+    left: 340px;
+}
+
+/* ######################### EFFECTS ###################### */
+
+#todo-list-sidebar.active {
+    /* left: 0; */
+    left: calc(100vh / 2) - 400px;
+}
+
+#main-page.active {
+    justify-content: flex-end;
+}
