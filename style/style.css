@@ -2,6 +2,7 @@
     --red: #fd5d5d;
     --green: #5FDA90;
     --darkgrey: #2D2D2D;
+    --half_of_screen: calc()
 }
 
 /* ######################### GENERAL ###################### */
@@ -22,6 +23,7 @@ html {
     display: flex;
     justify-content: center;
 }
+
 /* ######################### BUTTONS ###################### */
 nav {
     display: grid;
@@ -44,7 +46,6 @@ nav {
     color: #e5e5e5;
 }
 
-
 /* ######################### POMODORO ###################### */
 /* .pomodoro {
     position: absolute;
@@ -57,14 +58,14 @@ nav {
     justify-content: center;
 }
 
-#time {
+#countdown {
     margin: 0 0 .2em 0;
     font-size: 10em;
     color: var(--darkgrey);
     justify-content: flex-end;
 }
 
-#btn-start {
+#btn-start-timer {
     background: var(--darkgrey);
     color: #e5e5e5;
     border: none;
@@ -75,32 +76,39 @@ nav {
     text-transform: uppercase;
 }
 
+#btn-start-timer:hover {
+    background: #e5e5e5;
+    color: #2D2D2D;
+}
+
 /* ######################### TO-DO LIST SIDEBAR ###################### */
 #todo-list-sidebar {
     position: absolute;
-    width: 400px;
+    width: 1000px;
     height: 100%;
-    left: -330px;
+    left: -900px;
     top: 0px;
     background: #FF7A7A;
-    transition: .2s;
 }
 
 #toggle-btn {
-    /* background: #000; */
     border: none;
     position: absolute;
     top: 50%;
-    left: 340px;
+    left: 925px;
 }
 
 /* ######################### EFFECTS ###################### */
 
 #todo-list-sidebar.active {
-    /* left: 0; */
-    left: calc(100vh / 2) - 400px;
+    left: 0;
 }
 
 #main-page.active {
     justify-content: flex-end;
+}
+
+#btn-start-timer.active {
+    background: #e5e5e5;
+    color: #2d2d2d;
 }

@@ -1,6 +1,7 @@
 <DOCTYPE html>
-<html>
+<html lang="en">
 	<head>
+		<meta charset="UTF-8">
 		<title>Pomodoro</title>
 		<link rel="stylesheet" href="./style/style.css">
 		<link rel="preconnect" href="https://fonts.googleapis.com">
@@ -9,7 +10,7 @@
 	</head>
 	<body>
 		<div id="todo-list-sidebar">
-			<div id="toggle-btn" onclick="show()"><img src="https://img.icons8.com/ios/50/000000/add--v2.png"/></div>
+			<div id="toggle-btn" onclick="show_todo()"><img src="https://img.icons8.com/ios/50/000000/add--v2.png"/></div>
 		</div>
 		<div id="main-page">
 			<div class="pomodoro">
@@ -22,8 +23,8 @@
 					</div>
 				</nav>
 				<div class="counter">
-					<h1 id="time">25:00</h1>
-					<button id="btn-start">Start</button>
+					<h1 id="countdown">25:00</h1>
+					<button id="btn-start-timer" onclick="startTimer()">Start</button>
 				</div>
 			</div>
 		</div>
