@@ -1,7 +1,12 @@
 
-// Initialize timer to 25:00
-let startMinute = 25;
-let time = startMinute * 60;
+// Initialize timers
+let pomodoro_minute = 25;
+let shortbreak_minute = 5;
+let longbreak_minute = 10;
+// Convert timer to seconds
+let pomodoro_to_seconds = pomodoro_minute * 60;
+let shortbreak_to_seconds = shortbreak_minute * 60;
+let longbreak_to_seconds = longbreak_minute * 60;
 
 // Handles start and stop button logic
 function startTimer() {
@@ -15,20 +20,19 @@ function startTimer() {
 
 function updateTimer() {
     // Timer display parameters
-    const minutes = Math.floor(time / 60);
-    let seconds = time % 60;
+    const minutes = Math.floor(pomodoro_to_seconds / 60);
+    let seconds = pomodoro_to_seconds % 60;
     // Show extra 0 if the seconds text is single digit
     seconds = seconds < 10 ? '0' + seconds : seconds;
     // Update the element
-    const countdownEl = document.getElementById('countdown');
-    countdownEl.innerHTML = `${minutes}:${seconds}`;
-    time--;
+    const timer_element = document.getElementById('timer');
+    timer_element.innerHTML = `${minutes}:${seconds}`;
+    pomodoro_to_seconds--;
 }
 
-/*
-* Displays to-do list 
-*/
-function show_todo() {
+// ############################################################
+// Todo list
+function showTodoList() {
     if (document.getElementById('todo-list-sidebar').classList.toggle('active')) {
         document.getElementById('main-page').classList.toggle('active');
     } else {

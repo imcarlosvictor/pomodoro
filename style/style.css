@@ -58,7 +58,7 @@ nav {
     justify-content: center;
 }
 
-#countdown {
+#timer {
     margin: 0 0 .2em 0;
     font-size: 10em;
     color: var(--darkgrey);
