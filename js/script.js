@@ -3,10 +3,13 @@
 let startMinute = 25;
 let time = startMinute * 60;
 
+// Handles start and stop button logic
 function startTimer() {
     if (document.getElementById('btn-start-timer').classList.toggle('active')) {
         document.getElementById('btn-start-timer').innerHTML = 'Stop';
-        updateTimer();
+        setInterval(updateTimer, 1000);
+    } else {
+        document.getElementById('btn-start-timer').innerHTML = 'Start';
     }
 }
 
@@ -16,8 +19,6 @@ function updateTimer() {
     let seconds = time % 60;
     // Show extra 0 if the seconds text is single digit
     seconds = seconds < 10 ? '0' + seconds : seconds;
-    // Update display
-    setInterval(updateTimer, 1000);
     // Update the element
     const countdownEl = document.getElementById('countdown');
     countdownEl.innerHTML = `${minutes}:${seconds}`;
