@@ -2,6 +2,7 @@
     --red: #fd5d5d;
     --green: #5FDA90;
     --darkgrey: #2D2D2D;
+    --whitegrey: #e5e5e5;
     --half_of_screen: calc()
 }
 
@@ -46,11 +47,41 @@ nav {
     color: #e5e5e5;
 }
 
-/* ######################### POMODORO ###################### */
-/* .pomodoro {
-    position: absolute;
-    right: 200px;
-} */
+/* ######################### TIMERS ###################### */
+.btn-settings {
+    font-size: 17px;
+}
+
+#pomodoro:focus {
+    background: var(--darkgrey);
+    color: var(--whitegrey);
+}
+
+#short-break:focus {
+    background: var(--darkgrey);
+    color: var(--whitegrey);
+}
+
+#long-break:focus {
+    background: var(--darkgrey);
+    color: var(--whitegrey);
+}
+
+#pomodoro.active {
+    background: var(--darkgrey);
+    color: var(--whitegrey);
+    border: none;
+}
+
+#short-break.active {
+    background: var(--darkgrey);
+    color: var(--whitegrey);
+}
+
+#long-break.active {
+    background: var(--darkgrey);
+    color: var(--whitegrey);
+}
 
 /* ######################### COUNTER ###################### */
 .counter {
@@ -58,7 +89,7 @@ nav {
     justify-content: center;
 }
 
-#timer {
+#pomo-timer {
     margin: 0 0 .2em 0;
     font-size: 10em;
     color: var(--darkgrey);
@@ -81,6 +112,11 @@ nav {
     color: #2D2D2D;
 }
 
+#btn-start-timer.active {
+    background: #e5e5e5;
+    color: #2d2d2d;
+}
+
 /* ######################### TO-DO LIST SIDEBAR ###################### */
 #todo-list-sidebar {
     position: absolute;
@@ -91,6 +127,10 @@ nav {
     background: #FF7A7A;
 }
 
+#todo-list-sidebar.active {
+    left: 0;
+}
+
 #toggle-btn {
     border: none;
     position: absolute;
@@ -98,17 +138,9 @@ nav {
     left: 925px;
 }
 
-/* ######################### EFFECTS ###################### */
 
-#todo-list-sidebar.active {
-    left: 0;
-}
+/* ######################### EFFECTS ###################### */
 
 #main-page.active {
     justify-content: flex-end;
-}
-
-#btn-start-timer.active {
-    background: #e5e5e5;
-    color: #2d2d2d;
 }
