@@ -20,16 +20,12 @@ let timer_interval;
 
 // Handles start and stop button logic
 function handleTimer() {
-    let res = handleCountdownUI()
-    if (res) {
+    let result = handleCountdownUI()
+    if (result) {
        timer_interval = setInterval(start, 1000);
     } else {
         stop(timer_interval);
     }
-
-    // if (!res) {
-    //     stop(timer_interval);
-    // }
 }
 
 // TODO: Make the function reusable with the other timers
@@ -68,12 +64,12 @@ function handleCountdownUI() {
     }
 }
 
-function changeTimer() {
-    if (pomodoro_ID.classList.click()) {
+function changeTimer(timer) {
+    if (timer == 'pomodoro') {
         timer_ID.innerHTML = '25:00';
-    } else if (short_break_ID.classList.click()) {
-        timer_ID.innerHTML = '5:00';
-    } else if (long_break_ID.classList.click()) {
+    } else if (timer == 'short') {
+        timer_ID.innerHTML = '05:00';
+    } else if (timer == 'long') {
         timer_ID.innerHTML = '10:00';
     }
 }
