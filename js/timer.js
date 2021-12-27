@@ -8,11 +8,14 @@ const short_break_ID = document.getElementById('short-break');
 const long_break_ID = document.getElementById('long-break');
 // Timer ID
 const timer_ID = document.getElementById('pomo-timer');
+// Start button timer
+const start_btn = document.getElementById('btn-start-timer');
 // Timer interval for countdown
 let interval_timer;
 // Tracks which phase timer is active on the user's screen
-var active_phase_timer;
+var active_phase_timer = 'pomodoro';
 var countdown_timer;
+var countdown_timer_active = false;
 
 
 // #######################################################
@@ -31,10 +34,12 @@ function start() {
     countdown_timer--;
 }
 
-function stop(interval) {
-    // Stop the timer
-    clearInterval(interval);
+function stop() {
+    // Stop updating the element
+    clearInterval(interval_timer);
+    // Reset the timer
     setActiveTimer();
+    countdown_timer_active = false;
 }
 
 // TODO: Allow user to edit timer
@@ -45,6 +50,9 @@ function changeTimer() {
 // #######################################################
 // Set Timer
 // #######################################################
+/*
+* Reset the timer to its orignal state
+*/
 function setActiveTimer() {
     // Set time
     if (active_phase_timer == 'pomodoro') {
@@ -54,27 +62,31 @@ function setActiveTimer() {
     } else if (active_phase_timer == 'long') {
         countdown_timer = longbreak_minute * 60;
     }
-    console.log(countdown_timer);
 }
 
-// Handles start and stop button logic
+/*
+* Handles start and stop button logic
+*/
 function handleTimer() {
     setActiveTimer();
     let result = handleCountdownUI()
     if (result) {
-       interval_timer = setInterval(start, 1000);
+        countdown_timer_active = true;
+        interval_timer = setInterval(start, 1000);
     } else {
-        stop(interval_timer);
+        stop();
     }
 }
+
 
 // #######################################################
 // User Interface
 // #######################################################
-// Updates the timer and button interface on click
+/*
+* Updates the timer and button interface on click
+*/
 function handleCountdownUI() {
     // Countdown ID 
-    const start_btn = document.getElementById('btn-start-timer');
     if (start_btn.classList.toggle('active')) {
         start_btn.innerHTML = 'Stop';
         return true;
@@ -92,27 +104,48 @@ function handleCountdownUI() {
     }
 }
 
-function changeTimerDisplay(timer) {
-    active_phase_timer = timer;
-    // Phase timer background IDs
-    let background_ID = document.body.style;
-    let todo_list_ID = document.getElementById('todo-list-sidebar').style;
-    // background_ID = document.body.style;
-    if (timer == 'pomodoro') {
-        timer_ID.innerHTML = '25:00';
-        background_ID.backgroundColor = '#fd5d5d';
-        todo_list_ID.backgroundColor = '#FF7A7A';
-    } else if (timer == 'short') {
-        timer_ID.innerHTML = '05:00';
-        background_ID.backgroundColor = '#3DBC69';
-        todo_list_ID.backgroundColor = '#64D48A';
-    } else if (timer == 'long') {
-        timer_ID.innerHTML = '10:00';
-        background_ID.backgroundColor = '#4DA2BD';
-        todo_list_ID.backgroundColor = '#6DBCD4';
+function changePhase(phase) {
+    if (countdown_timer_active) {
+        let result = confirm('Countdown timer is active. Are you sure you want to end your session?');
+        if (result) {
+            // Stop timer
+            stop(interval_timer);
+            // Reset start timer button 
+            start_btn.classList.toggle('active');
+            start_btn.innerHTML = 'Start';
+            // Change page
+            changeTimerDisplay(phase);
+        } 
+    } else {
+        changeTimerDisplay(phase);
     }
 }
 
-// document.body.onload = function() {
-//     pomodoro_ID.toggle();
-// }
+function changeTimerDisplay(current_phase) {
+    // Change page
+    active_phase_timer = current_phase;
+    // Phase timer background IDs
+    let background_ID = document.body.style;
+    let todo_list_ID = document.getElementById('todo-list-sidebar').style;
+    //
+    if (current_phase == 'pomodoro') {
+        timer_ID.innerHTML = '25:00';
+        background_ID.backgroundColor = '#fd5d5d';
+        todo_list_ID.backgroundColor = '#FF7A7A';
+        pomodoro_ID.classList.toggle('active');
+    } else if (current_phase == 'short') {
+        timer_ID.innerHTML = '05:00';
+        background_ID.backgroundColor = '#3DBC69';
+        todo_list_ID.backgroundColor = '#64D48A';
+        short_break_ID.classList.toggle('active');
+    } else if (current_phase== 'long') {
+        timer_ID.innerHTML = '10:00';
+        background_ID.backgroundColor = '#4DA2BD';
+        todo_list_ID.backgroundColor = '#6DBCD4';
+        long_break_ID.classList.toggle('active');
+    }
+}
+
+document.body.onload = function() {
+    pomodoro_ID.toggle();
+}

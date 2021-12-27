@@ -25,6 +25,10 @@ body {
     justify-content: center;
 }
 
+#main-page.active {
+    justify-content: flex-end;
+}
+
 /* ######################### BUTTONS ###################### */
 nav {
     display: grid;
@@ -52,35 +56,15 @@ nav {
     font-size: 17px;
 }
 
-#pomodoro:focus {
+#pomodoro:focus #short-break:focus #long-break:focus{
     background: var(--darkgrey);
     color: var(--whitegrey);
 }
 
-#short-break:focus {
-    background: var(--darkgrey);
-    color: var(--whitegrey);
-}
-
-#long-break:focus {
-    background: var(--darkgrey);
-    color: var(--whitegrey);
-}
-
-#pomodoro.active {
+#pomodoro.active #short-break.active #long-break.active{
     background: var(--darkgrey);
     color: var(--whitegrey);
     border: none;
-}
-
-#short-break.active {
-    background: var(--darkgrey);
-    color: var(--whitegrey);
-}
-
-#long-break.active {
-    background: var(--darkgrey);
-    color: var(--whitegrey);
 }
 
 /* ######################### COUNTER ###################### */
@@ -105,16 +89,16 @@ nav {
     font-size: 25px;
     font-weight: 500;
     text-transform: uppercase;
-}
-
-#btn-start-timer:hover {
-    background: #e5e5e5;
-    color: #2D2D2D;
+    font-size: 24px;
+    text-align: center;
+    cursor: pointer;
+    outline: none;
+    box-shadow: 0 9px #555;
 }
 
 #btn-start-timer.active {
-    background: #e5e5e5;
-    color: #2d2d2d;
+    box-shadow: 0 5px #666;
+    transform: translateY(4px);
 }
 
 /* ######################### TO-DO LIST SIDEBAR ###################### */
@@ -136,11 +120,4 @@ nav {
     position: absolute;
     top: 50%;
     left: 925px;
-}
-
-
-/* ######################### EFFECTS ###################### */
-
-#main-page.active {
-    justify-content: flex-end;
 }
