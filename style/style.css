@@ -3,7 +3,7 @@
     --green: #5FDA90;
     --darkgrey: #2D2D2D;
     --whitegrey: #e5e5e5;
-    --half_of_screen: calc()
+    --half_of_screen: calc(100vh / 2);
 }
 
 /* ######################### GENERAL ###################### */
@@ -19,9 +19,11 @@ body {
 }
 
 #main-page {
-    padding: 5em;
+    padding: 3em;
     height: 100vh;
-    display: flex;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
     justify-content: center;
 }
 
@@ -51,22 +53,25 @@ nav {
     color: #e5e5e5;
 }
 
-/* ######################### TIMERS ###################### */
 .btn-settings {
     font-size: 17px;
 }
 
+/* ######################### POMODORO ###################### */
+.pomodoro {
+    grid-column-start: 2;
+    grid-column-end: 4;
+}
+/* ######################### TIMERS ###################### */
 #pomodoro:focus #short-break:focus #long-break:focus{
     background: var(--darkgrey);
     color: var(--whitegrey);
 }
-
 #pomodoro.active #short-break.active #long-break.active{
     background: var(--darkgrey);
     color: var(--whitegrey);
     border: none;
 }
-
 /* ######################### COUNTER ###################### */
 .counter {
     display: grid;
@@ -101,12 +106,43 @@ nav {
     transform: translateY(4px);
 }
 
+
+/* ######################### SPOTIFY ###################### */
+.spotify {
+    grid-column-start: 2;
+    grid-column-end: 4;
+    grid-row: 2;
+    width: 100%;
+    height: 100%;
+    background: var(--darkgrey);
+    display: grid;
+    justify-content: center;
+    align-items: center;
+}
+
+#btn-spotify-login {
+    background: var(--green);
+    color: var(--darkgrey);
+    border: none;
+    border-radius: 5px;
+    padding: 0.8em 1em;
+    font-size: 25px;
+    font-weight: 500;
+    text-transform: uppercase;
+    font-size: 24px;
+    text-align: center;
+    cursor: pointer;
+    outline: none;
+    /* box-shadow: 0 9px #555; */
+}
+
+
 /* ######################### TO-DO LIST SIDEBAR ###################### */
 #todo-list-sidebar {
-    position: absolute;
-    width: 1000px;
+    width: calc(100vw / 2);
     height: 100%;
-    left: -900px;
+    position: absolute;
+    left: calc((100vw / -2) + 70px); 
     top: 0px;
     background: #FF7A7A;
 }
@@ -119,5 +155,9 @@ nav {
     border: none;
     position: absolute;
     top: 50%;
-    left: 925px;
+    left: calc((100vw / 2) - 55px);
+}
+
+#toggle-btn img {
+    width: 80%;
 }
