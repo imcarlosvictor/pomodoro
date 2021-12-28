@@ -27,9 +27,9 @@ body {
     justify-content: center;
 }
 
-#main-page.active {
+/* #main-page.active {
     justify-content: flex-end;
-}
+} */
 
 /* ######################### BUTTONS ###################### */
 nav {
@@ -57,11 +57,19 @@ nav {
     font-size: 17px;
 }
 
+
 /* ######################### POMODORO ###################### */
 .pomodoro {
     grid-column-start: 2;
     grid-column-end: 4;
 }
+
+.pomodoro.active {
+    grid-column-start: 3;
+    grid-column-end: 5;
+}
+
+
 /* ######################### TIMERS ###################### */
 #pomodoro:focus #short-break:focus #long-break:focus{
     background: var(--darkgrey);
