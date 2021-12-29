@@ -14,5 +14,5 @@
 - [x] Create tasks
     - [x] Css for new tasks
 - [] Update tasks
-- [] Delete tasks
-    - [] Css for removing tasks
+- [x] Delete tasks
+    - [x] Css for removing tasks

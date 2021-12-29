@@ -1,13 +1,10 @@
 const taskInput = document.querySelector('.task-userinput');
 const addTaskButton = document.querySelector('.add-task-btn');
 const todoList = document.querySelector('.todo-list');
-const activeTask = document.querySelector('.task-inputs');
 
 // Event Listeners
 addTaskButton.addEventListener('click', addTask);
 todoList.addEventListener('click', deleteCheck);
-activeTask.addEventListener('click', completedTask);
-
 
 function showTodoList() {
     let todo_active = document.getElementById('todo-list-sidebar').classList.toggle('active');
@@ -20,7 +17,6 @@ function showTodoList() {
         document.getElementById('pomodoro-block').style.gridColumnEnd = 5;
     }
 }
-
 
 function addTask(event) {
     if (!taskInput.value) {
@@ -44,16 +40,25 @@ function addTask(event) {
     }
 }
 
-function completedTask() {
-    document.getElementById('task-inputs').classList.toggle('active');
-}
-
 function deleteCheck(e) {
-    console.log(e.target);
     const item = e.target;
     // Delete todo
     if (item.classList[0] === 'delete-btn') {
         const task = item.parentElement;
         task.remove();
+    }
+
+    // Track first element in todo list
+    let user_task = todoList.firstElementChild;
+    // Iterate through the tasks until the text of the current task matches to the event text
+    for (var i=0; i<todoList.childNodes.length; i++) {
+        console.log(user_task.textContent);
+        if (user_task.textContent === item.textContent) {
+            // const task = todoList.childNodes[i];
+            user_task.classList.toggle('completed');
+            break;
+        } else {
+            user_task = user_task.nextElementSibling;
+        }
     }
 }

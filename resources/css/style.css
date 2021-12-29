@@ -231,7 +231,7 @@ nav {
 
 .task-inputs {
     margin: 0.5em 0;
-    background: #dfbebe;
+    background: #f5d2d2;
     height: 50px;
     color: var(--darkgrey);
     display: flex;
@@ -243,12 +243,12 @@ nav {
 }
 
 .task-inputs:hover {
-    background: #a18686;
+    background: #d6b7b7;
     text-decoration: line-through;
 }
 
-.task-inputs.active {
-    background: #a18686;
+.completed {
+    opacity: .5;
     text-decoration: line-through;
 }
 
