@@ -146,7 +146,7 @@ function changeTimerDisplay(current_phase) {
     }
 }
 
-document.body.onload = function() {
-    pomodoro_ID.toggle();
-}
+// document.body.onload = function() {
+//     pomodoro_ID.toggle();
+// }
 

@@ -27,9 +27,6 @@ body {
     justify-content: center;
 }
 
-/* #main-page.active {
-    justify-content: flex-end;
-} */
 
 /* ######################### BUTTONS ###################### */
 nav {
@@ -42,7 +39,7 @@ nav {
 .btn-settings {
     background: none;
     color: var(--darkgrey);
-    border: none;
+    border: hidden;
     border-radius: 5px;
     margin: .5em;
     padding: .5em;
@@ -51,6 +48,7 @@ nav {
 .btn-settings:hover {
     background: #484242;
     color: #e5e5e5;
+    cursor: pointer;
 }
 
 .btn-settings {
@@ -59,14 +57,9 @@ nav {
 
 
 /* ######################### POMODORO ###################### */
-.pomodoro {
+#pomodoro-block {
     grid-column-start: 2;
     grid-column-end: 4;
-}
-
-.pomodoro.active {
-    grid-column-start: 3;
-    grid-column-end: 5;
 }
 
 
@@ -75,11 +68,13 @@ nav {
     background: var(--darkgrey);
     color: var(--whitegrey);
 }
+
 #pomodoro.active #short-break.active #long-break.active{
     background: var(--darkgrey);
     color: var(--whitegrey);
-    border: none;
 }
+
+
 /* ######################### COUNTER ###################### */
 .counter {
     display: grid;
@@ -96,7 +91,7 @@ nav {
 #btn-start-timer {
     background: var(--darkgrey);
     color: #e5e5e5;
-    border: none;
+    border: hidden;
     border-radius: 5px;
     padding: 0.8em 2em;
     font-size: 25px;
@@ -116,7 +111,7 @@ nav {
 
 
 /* ######################### SPOTIFY ###################### */
-.spotify {
+/* .spotify {
     grid-column-start: 2;
     grid-column-end: 4;
     grid-row: 2;
@@ -131,7 +126,7 @@ nav {
 #btn-spotify-login {
     background: var(--green);
     color: var(--darkgrey);
-    border: none;
+    border: hidden;
     border-radius: 5px;
     padding: 0.8em 1em;
     font-size: 25px;
@@ -141,12 +136,12 @@ nav {
     text-align: center;
     cursor: pointer;
     outline: none;
-    /* box-shadow: 0 9px #555; */
-}
+} */
 
 
 /* ######################### TO-DO LIST SIDEBAR ###################### */
 #todo-list-sidebar {
+    padding: 5em;
     width: calc(100vw / 2);
     height: 100%;
     position: absolute;
@@ -160,12 +155,118 @@ nav {
 }
 
 #toggle-btn {
-    border: none;
+    border: hidden;
     position: absolute;
     top: 50%;
     left: calc((100vw / 2) - 55px);
 }
 
+#toggle-btn:hover {
+    cursor: pointer;
+}
+
 #toggle-btn img {
     width: 80%;
+}
+
+#task-manager {
+    padding: 1em;
+    height: 100%;
+}
+
+#mytask-title {
+    display: flex;
+    justify-content: space-between;
+}
+
+.task-userinput {
+    width: 100%;
+    border: hidden;
+    background: none;
+    font-size: 22px;
+    color: var(--darkgrey);
+}
+
+::placeholder {
+    color: var(--darkgrey);
+}
+
+.task-userinput:focus {
+    border: hidden;
+    outline: none;
+}
+
+#mytask-title h3 {
+    color: var(--darkgrey);
+    text-transform: capitalize;
+}
+
+#line-div {
+    margin-top: .5em;
+    height: 1.5px;
+    background: var(--darkgrey);
+}
+
+.add-task-btn {
+    margin-top: 1em;
+    padding: 1em;
+    width: 100%;
+    font-size: 20px;
+    text-transform: uppercase;
+    display: flex;
+    justify-content: center;
+    background: none;
+    border-width: 2.2px;
+    border-radius: 5px;
+    border-style: solid;
+    border-color: var(--darkgrey);
+}
+
+.add-task-btn:hover {
+    background: var(--darkgrey);
+    color: var(--whitegrey);
+    border-color: var(--darkgrey);
+    cursor: pointer;
+}
+
+.task-inputs {
+    margin: 0.5em 0;
+    background: #dfbebe;
+    height: 50px;
+    color: var(--darkgrey);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 20px;
+    border-radius: 5px;
+    padding: .5em;
+}
+
+.task-inputs:hover {
+    background: #a18686;
+    text-decoration: line-through;
+}
+
+.task-inputs.active {
+    background: #a18686;
+    text-decoration: line-through;
+}
+
+.user-task-item {
+    list-style-type: none;
+}
+
+.delete-btn {
+    padding: 1rem;
+    border: hidden;
+    background: none;
+    font-size: 1rem;
+}
+
+.delete-btn:hover {
+    cursor: pointer;
+}
+
+.fa-trash {
+    pointer-events: none;
 }

@@ -6,14 +6,28 @@
 		<link rel="stylesheet" href="./resources/css/style.css">
 		<link rel="preconnect" href="https://fonts.googleapis.com">
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha512-Fo3rlrZj/k7ujTnHg4CGR2D7kSs0v4LLanw2qksYuRlEzO+tcaEPQogQ0KaoGN26/zrn20ImR1DfuLWnOo7aBA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 		<link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,500;0,700;1,400&display=swap" rel="stylesheet">
 	</head>
-	<body onload="focusOnTimer()">
+	<body>
 		<div id="main-page">
+
 			<div id="todo-list-sidebar">
-				<div id="toggle-btn" onclick="showTodoList()"><img src="https://img.icons8.com/ios/50/000000/add--v2.png"/></div>
+				<div id="toggle-btn" onclick="showTodoList()"><img src="/resources/icons/icons8-add-50.png"/></div>
+				<div id="task-manager">
+					<div id="mytask-title">
+						<input type="text" class="task-userinput" placeholder="Enter task">
+						<div id="edit-button"><img src="/resources/icons/icons8-adjust-32.png"></div>
+					</div>
+					<div id="line-div"></div>
+					<button class="add-task-btn">Add task</button>
+					<div id="todo-containter">
+						<ul class="todo-list"></ul>
+					</div>
+				</div>
 			</div>
-			<div class="pomodoro">
+
+			<div id="pomodoro-block">
 				<nav>
 					<div class="phases">
 						<button class="btn-settings" id="pomodoro" onclick="changePhase('pomodoro')">Pomodoro</button>
@@ -27,9 +41,7 @@
 					<button id="btn-start-timer" onclick="handleTimer()">Start</button>
 				</div>
 			</div>
-			<div class="spotify">
-				<button id="btn-spotify-login" onclick="loginSpotify()"><a>Spotify</a></button>
-			</div>
+
 		</div>
 		<script src="./resources/js/todo.js"></script>
 		<script src="./resources/js/timer.js"></script>
