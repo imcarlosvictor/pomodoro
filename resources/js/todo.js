@@ -5,7 +5,7 @@ const todoList = document.querySelector('.todo-list');
 // Event Listeners
 document.addEventListener('DOMContentLoaded', recoverTasks);
 addTaskButton.addEventListener('click', addTask);
-todoList.addEventListener('click', deleteCheck);
+todoList.addEventListener('click', taskManager);
 
 // Local storage to store user tasks
 var all_tasks;
@@ -52,12 +52,18 @@ function addTask(event) {
     }
 }
 
-function deleteCheck(e) {
+function taskManager(e) {
     // Update task
     const item = e.target;
+
     if (item.classList[0] === 'edit-btn') {
         const task = item.parentElement;
-        let new_task = window.prompt('Enter new task: ');
+        let new_task = window.prompt('Enter new task name: ');
+        while(!new_task) {
+            alert('Enter a task name');
+            window.prompt('Enter new task name' );
+        }
+
         task.innerText = new_task;
         // Add to list
         const newTask = document.createElement('li');
@@ -95,9 +101,20 @@ function deleteCheck(e) {
     }
 }
 
+// function deleteAllTasks() {
+//     let user_task = todoList.firstElementChild;
+//     for (var i=0; i<todoList.List.childNodes.length; i++) {
+//         removeLocalTasks(user_task);
+//         user_task.remove();        
+//     }
+// }
+
+/*
+Check the local storage if there is an existing array holding tasks from before
+*/
 function parseLocalStorage() {
     if (localStorage.getItem('all_tasks') === null) {
-        // Create a new array
+        // Create new array
         all_tasks = [];
     } else {
         // Parse the existing array
@@ -105,6 +122,9 @@ function parseLocalStorage() {
     }
 }
 
+/*
+Add task to the local storage
+*/
 function saveLocalTodos(task) {
     parseLocalStorage();
     // Add task to array 
@@ -112,6 +132,9 @@ function saveLocalTodos(task) {
     localStorage.setItem('all_tasks', JSON.stringify(all_tasks));
 }
 
+/* 
+Create a list of elements for each task in the local storage
+*/
 function recoverTasks() {
     parseLocalStorage();
 
@@ -138,6 +161,9 @@ function recoverTasks() {
     })
 }
 
+/*
+Remove tasks from the local storage
+*/
 function removeLocalTasks(task) {
     parseLocalStorage();
     const taskIndex = task.children[0].innerText;

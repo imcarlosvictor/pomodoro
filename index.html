@@ -17,11 +17,11 @@
 				<div id="task-manager">
 					<div id="mytask-title">
 						<input type="text" class="task-userinput" placeholder="Enter task">
-						<button id="btn-task-settings"><i class="fas fa-cog"></i></button>
+						<!-- <button id="btn-task-settings" onclick="deleteAllTasks()"><i class="fas fa-cog"></i></button> -->
 					</div>
 					<div id="line-div"></div>
 					<button class="add-task-btn">Add task</button>
-					<div id="todo-containter">
+					<div id="todo-container">
 						<ul class="todo-list"></ul>
 					</div>
 				</div>
@@ -33,7 +33,7 @@
 						<button class="btn-settings" id="pomodoro" onclick="changePhase('pomodoro')">Pomodoro</button>
 						<button class="btn-settings" id="short-break" onclick="changePhase('short')">Short Break</button>
 						<button class="btn-settings" id="long-break" onclick="changePhase('long')">Long Break</button>
-						<button id="btn-timer-settings"><i class="fas fa-cog"></i></button>
+						<button id="btn-timer-settings" onclick="changeTimer()"><i class="fas fa-cog"></i></button>
 					</div>
 				</nav>
 				<div class="counter">

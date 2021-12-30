@@ -146,14 +146,15 @@ function changeTimerDisplay(current_phase) {
     }
 }
 
-// timer_ID.addEventListener('click', changeTimer());
-// function changeTimer() {
-//     let new_time = window.prompt('Enter minutes: ');
-//     if (active_phase_timer === 'pomodoro') {
-//         pomodoro_minute = new_time;        
-//     } else if (active_phase_timer === 'short') {
-//         shortbreak_minute = new_time;
-//     } else if (active_phase_timer === 'long') {
-//         longbreak_minute = new_time;
-//     }
-// }
+function changeTimer() {
+    let new_time = window.prompt('Enter minutes: ');
+    new_time = new_time < 10 ? '0' + new_time : new_time;
+    if (active_phase_timer === 'pomodoro') {
+        pomodoro_minute = new_time;        
+    } else if (active_phase_timer === 'short') {
+        shortbreak_minute = new_time;
+    } else if (active_phase_timer === 'long') {
+        longbreak_minute = new_time;
+    }
+    timer_ID.innerHTML = new_time + ':00';
+}
