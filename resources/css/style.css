@@ -193,13 +193,14 @@ nav {
 }
 
 .todo-list {
+    margin-top: 2em;
     max-height: 72vh;
     overflow-y: auto;
     scrollbar-width: thin;
 }
 
 .task-userinput {
-    width: 100%;
+    width: 80%;
     border: hidden;
     background: none;
     font-size: 22px;
@@ -221,8 +222,8 @@ nav {
 }
 
 #line-div {
-    margin-top: .5em;
-    height: 1.5px;
+    /* margin-top: .5em; */
+    height: 4px;
     background: var(--darkgrey);
 }
 
@@ -230,22 +231,18 @@ nav {
     margin-top: 1em;
     margin-bottom: 1em;
     padding: 1em;
-    width: 100%;
-    font-size: 20px;
-    text-transform: uppercase;
+    width: 60px;
+    font-size: 18px;
     display: flex;
     justify-content: center;
-    background: none;
-    border-width: 2.2px;
+    border: hidden;
     border-radius: 5px;
-    border-style: solid;
-    border-color: var(--darkgrey);
+    background: var(--darkgrey);
+    color: var(--whitegrey);
 }
 
 .add-task-btn:hover {
-    background: var(--darkgrey);
-    color: var(--whitegrey);
-    border-color: var(--darkgrey);
+    /* border-color: var(--darkgrey); */
     cursor: pointer;
 }
 
