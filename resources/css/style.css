@@ -247,6 +247,11 @@ nav {
     text-decoration: line-through;
 }
 
+.task-inputs li
+ {
+    flex: 1;
+}
+
 .completed {
     opacity: .5;
     text-decoration: line-through;
@@ -256,17 +261,17 @@ nav {
     list-style-type: none;
 }
 
-.delete-btn {
+.delete-btn , .edit-btn{
     padding: 1rem;
     border: hidden;
     background: none;
     font-size: 1rem;
 }
 
-.delete-btn:hover {
+.delete-btn:hover , .edit-btn{
     cursor: pointer;
 }
 
-.fa-trash {
+.fa-trash , .fa-edit{
     pointer-events: none;
 }
