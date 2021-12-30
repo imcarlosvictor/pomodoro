@@ -15,6 +15,10 @@
     - [x] Css for new tasks
 - [x] Delete tasks
     - [x] Css for removing tasks
-- [] Update tasks
+- [x] Update tasks
 - [] Option to clear all tasks
-- [] Save tasks to local storage
+- [x] Save tasks to local storage
+- [] Adding a scroll bar once the tasks reach the end of the page
+
+## General
+- [] Media queries

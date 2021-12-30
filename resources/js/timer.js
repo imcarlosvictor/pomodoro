@@ -146,7 +146,14 @@ function changeTimerDisplay(current_phase) {
     }
 }
 
-// document.body.onload = function() {
-//     pomodoro_ID.toggle();
+// timer_ID.addEventListener('click', changeTimer());
+// function changeTimer() {
+//     let new_time = window.prompt('Enter minutes: ');
+//     if (active_phase_timer === 'pomodoro') {
+//         pomodoro_minute = new_time;        
+//     } else if (active_phase_timer === 'short') {
+//         shortbreak_minute = new_time;
+//     } else if (active_phase_timer === 'long') {
+//         longbreak_minute = new_time;
+//     }
 // }
-
