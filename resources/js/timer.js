@@ -16,7 +16,8 @@ let interval_timer;
 var active_phase_timer = 'pomodoro';
 var countdown_timer;
 var countdown_timer_active = false;
-
+// Phase Change Counter
+var phase_count = 0;
 
 // #######################################################
 // Timer Functionality
@@ -32,6 +33,20 @@ function start() {
     // Update the element
     timer_ID.innerHTML = `${minutes}:${seconds}`;
     countdown_timer--;
+    // Handle phase change automatically
+    if (countdown_timer == 0 || countdown_timer % 2 == 0) {
+        active_phase_timer = 'short';
+        phase_count++;
+        setActiveTimer();
+    } else if (countdown_timer == 1 || countdown_timer % 3 == 0) {
+        active_phase_timer = 'pomodoro';
+        phase_count++;
+        setActiveTimer();
+    } else {
+        active_phase_timer = 'long';
+        phase_count = 0;
+        setActiveTimer();
+    }
 }
 
 function stop() {
